@@ -376,13 +376,17 @@
   var AR_ITEMS = {
     burger: {
       folder: 'burger',
-      title: 'Hamburger'
+      title: 'Hamburger',
+      glb: 'chicken_android.glb',
+      usdz: 'chicken_ios.usdz'
     },
     pocari: {
       folder: 'pocari',
-      title: 'Pocari Sweat'
+      title: 'Pocari Sweat',
+      glb: 'minum_android.glb',
+      usdz: 'minum_ios.usdz'
     }
-  };
+};
 
   // ===== OS DETECTION =====
   function getOS() {
@@ -406,9 +410,9 @@
   function getModelPath(item, format) {
     var config = AR_ITEMS[item];
     if (!config) return null;
-    var ext = (format === 'ios') ? 'scene.usdz' : 'scene.glb';
+    var ext = (format === 'ios') ? config.usdz : config.glb;
     return MODEL_BASE + '/' + config.folder + '/' + ext;
-  }
+}
 
   // ===== GET ABSOLUTE URL =====
   function getAbsoluteURL(relativePath) {
